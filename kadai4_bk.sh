@@ -2,26 +2,26 @@
 
 # 引数の数をチェック
 if [ $# -ne 2 ]; then
-  echo "ERROR:input 2 argments" 
+  echo "ERROR:input 2 argments" 1>&2
   exit 1
 fi
 
 # 引数の数字チェック
-expr $1 + $2 > /dev/null 2>&1 
+expr $1 + $2 > /dev/null 2>&1
 if [ $? -ge 2 ]; then
-  echo "ERROR:input natural number"
+  echo "ERROR:input natural number" 1>&2
   exit 1
 fi
 
 # 引数1が0かどうかチェック
 if [[ "$1" == 0 ]]; then
-  echo "ERROR:input1 is 0" 2>&1
+  echo "ERROR:input1 is 0" 1>&2
   exit 1
 fi
 
 # 引数2が0かどうかチェック
 if [[ "$2" == 0 ]]; then
-  echo "ERROR:input2 is 0" 2>&1
+  echo "ERROR:input2 is 0" 1>&2
   exit 1
 fi
 
@@ -30,7 +30,7 @@ fi
 if [[ "$1" =~ ^[0-9]+$ ]]; then
   :
 else
-  echo "ERROR:input1 is not natural number"
+  echo "ERROR:input1 is not natural number" 1>&2
   exit 1
 fi
 
@@ -38,7 +38,7 @@ fi
 if [[ "$2" =~ ^[0-9]+$ ]]; then
   :
 else
-  echo "ERROR:input2 is not natural number"
+  echo "ERROR:input2 is not natural number" 1>&2
   exit 1
 fi
 
